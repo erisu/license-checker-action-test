@@ -29,4 +29,4 @@ jobs:
       - name: npm install packages
         run: npm i
 
-      - uses: erisu/license-checker-action@master
+      - uses: erisu/license-checker-action@main
