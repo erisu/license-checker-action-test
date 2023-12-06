@@ -30,5 +30,3 @@ jobs:
         run: npm i
 
       - uses: erisu/license-checker-action@master
-        with:
-          
