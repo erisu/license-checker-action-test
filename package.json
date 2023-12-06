@@ -1,0 +1,25 @@
+{
+  "name": "license-checker-action-test",
+  "version": "1.0.0",
+  "description": "license-checker-action-test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "configstore": "^6.0.0",
+    "cordova-common": "^5.0.0",
+    "cordova-create": "^5.0.0",
+    "cordova-lib": "^12.0.1",
+    "editor": "^1.0.0",
+    "execa": "^8.0.1",
+    "fs-extra": "^11.2.0",
+    "insight": "^0.11.1",
+    "loud-rejection": "^2.2.0",
+    "nopt": "^7.2.0",
+    "semver": "^7.5.4",
+    "systeminformation": "^5.21.20"
+  }
+}
