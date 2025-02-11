@@ -33,6 +33,7 @@ jobs:
       - name: npm install packages
         run: npm i
 
-      - uses: erisu/license-checker-action@main
+      - uses: erisu/license-checker-action@feat/add-allowed-licenses-groups-and-bin-support
         with:
+          include-asf-category-a: true
           license-config: 'licence_checker.yml'
