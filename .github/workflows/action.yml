@@ -28,12 +28,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: npm install packages
         run: npm i
 
-      - uses: erisu/license-checker-action@feat/add-allowed-licenses-groups-and-bin-support
+      - uses: erisu/license-checker-action@1c222d0c2f5898a4c40b8bd6fd6888650bd6f68a
         with:
-          include-asf-category-a: true
           license-config: 'licence_checker.yml'
