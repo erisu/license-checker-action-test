@@ -6,34 +6,44 @@
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#   http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
 # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#  KIND, either express or implied.  See the License for the
+# KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
 
 name: Release Auditing
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+  pull_request:
+    branches:
+      - '*'
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: Check License Headers
+    name: Audit Licenses
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      # Checkout project
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 20
+          persist-credentials: false
+          fetch-depth: 1
 
+      # Install node packages
       - name: npm install packages
-        run: npm i
+        run: npm ci
 
-      - uses: erisu/license-checker-action@1c222d0c2f5898a4c40b8bd6fd6888650bd6f68a
+      # Check node package licenses
+      - uses: erisu/license-checker-action@04511f4c052b5773f11e1c65b42cda88235c62ae # v2.1.0
         with:
-          license-config: 'licence_checker.yml'
           include-asf-category-a: true
